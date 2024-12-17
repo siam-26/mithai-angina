@@ -3,7 +3,7 @@ import sweetImg from '../../assets/mishty.jpeg';
 const Categories = () => {
     return (
         
-            <div>
+            <div className='mt-20 md:mt-24'>
                 <p className='text-center lg:text-left text-primary text-2xl font-bold'>আমাদের ক্যাটাগরিসমূহ</p>
 
                 {/* all products */}
