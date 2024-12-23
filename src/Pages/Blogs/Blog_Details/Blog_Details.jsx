@@ -1,6 +1,6 @@
 import { TiSocialFacebook, TiSocialLinkedin } from 'react-icons/ti';
 import blogImg from '../../../assets/mishty.jpeg';
-import demoAdsImg from '../../../assets/demoAds.png';
+import demoAdsImg from '../../../assets/laddu.jpeg';
 import { Link } from 'react-router';
 import { RiTwitterXLine } from 'react-icons/ri';
 import { FaPinterest } from 'react-icons/fa';
@@ -44,6 +44,23 @@ const Blog_Details = () => {
     },
   ];
 
+  //share page url
+  const shareUrl = "https://www.pet.com.bd/what-to-do-for-cat-diarrhea/";
+
+  //facebook api
+  const facebookShareApi = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+
+  //twitter api
+  const twitterShareApi = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareUrl)}`;
+
+  //linkedin api
+  const linkedInShareApi = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+
+  // social media share function
+  const handleSocialMediaShare = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div>
       <div className="grid lg:grid-cols-4 gap-8">
@@ -86,16 +103,20 @@ const Blog_Details = () => {
 
           {/* social media links */}
           <div className='flex gap-4 text-white mt-5'>
-            <div className='bg-[#365493] rounded-full'><TiSocialFacebook className='m-2' /></div>
-            <div className='bg-black rounded-full'><RiTwitterXLine className='m-2' /></div>
-            <div className='bg-[#cb2027] rounded-full'><FaPinterest className='m-2' /></div>
-            <div className='bg-[#0274b3] rounded-full'><TiSocialLinkedin className='m-2' /></div>
+            {/* facebook */}
+            <div className='bg-[#365493] rounded-full'><TiSocialFacebook onClick={() => handleSocialMediaShare(facebookShareApi)} className='m-2 cursor-pointer' /></div>
+            {/* twitter */}
+            <div className='bg-black rounded-full'><RiTwitterXLine onClick={() => handleSocialMediaShare(twitterShareApi)} className='m-2 cursor-pointer' /></div>
+            {/* pinterest */}
+            <div className='bg-[#cb2027] rounded-full'><FaPinterest className='m-2 cursor-pointer' /></div>
+            {/* linkedIn */}
+            <div className='bg-[#0274b3] rounded-full'><TiSocialLinkedin onClick={() => handleSocialMediaShare(linkedInShareApi)} className='m-2 cursor-pointer' /></div>
           </div>
         </div>
         {/* right part for larger device */}
         <div className="">
           <div className='hidden lg:block'>
-            <img src={demoAdsImg} alt="" />
+            <img className='object-cover' src={demoAdsImg} alt="" />
           </div>
 
           {/* recent posts */}

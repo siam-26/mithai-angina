@@ -5,7 +5,7 @@ const Product_Details = () => {
   return (
     <div className='grid lg:grid-cols-2 mt-10'>
       <div>
-        <img className='w-full lg:w-11/12 md:h-[600px]' src={image} alt="" />
+        <img className='object-contain w-full lg:w-11/12 md:h-[600px]' src={image} alt="" />
       </div>
       <div className='mt-8 md:mt-16'>
         <h1 className='text-2xl font-bold'>Grilled Zuccini and Barley Salad</h1>
